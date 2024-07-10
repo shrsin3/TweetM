@@ -5,7 +5,12 @@ import {useEffect} from "react";
 
 export default function App() {
     useEffect(() => {
-        const eventList = [];
+        let date = new Date();
+        date = date.toLocaleString("en-CA", {
+            timeZone: "America/Vancouver",
+            timeZoneName: "long",
+        });
+        const eventList = [{"appName": "Twitter", "date": date}];
 
         window.addEventListener("click", (event) => {
             let x = event.pageX;  // Horizontal
