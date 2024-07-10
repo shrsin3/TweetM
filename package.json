@@ -1,7 +1,7 @@
 {
   "name": "tweet",
   "version": "0.1.0",
-  "homepage": "https://shrsin3.github.io/Tweet",
+  "homepage": "https://shrsin3.github.io/TweetM",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
