@@ -33,11 +33,7 @@ jobs:
       - name: Build
         env:
           REACT_APP_TENOR_API_KEY: ${{ secrets.REACT_APP_TENOR_API_KEY }}
-          REACT_APP_PART_ONE: ${{ secrets.REACT_APP_PART_ONE }}
-          REACT_APP_PART_TWO: ${{ secrets.REACT_APP_PART_TWO }}
-          REACT_APP_PART_THREE: ${{ secrets.REACT_APP_PART_THREE }}
-          REACT_APP_PART_FOUR: ${{ secrets.REACT_APP_PART_FOUR }}
-          REACT_APP_PART_FIVE: ${{ secrets.REACT_APP_PART_FIVE }}
+          REACT_APP_MY_CONSTANT: ${{ secrets.REACT_APP_MY_CONSTANT }}
         run: npm run build
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
