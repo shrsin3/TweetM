@@ -348,12 +348,20 @@ export default function App() {
 
     }, []);
   return (
+      <>
+          <div id="header">
+              <div>
+                  <h3 id="task-heading">Task Objective</h3>
+                  <p>Create and post a Twitter poll to gather opinions on whether individuals like pineapple on pizza</p>
+              </div>
+              <div id="save-button">
+                  <button name="help" id="get-help" aria-label="button" role="button">Help</button>
+                  <button name="save" id="save-data" aria-label="button" role="button">Save</button>
+              </div>
+          </div>
     <div className="container">
         <div id="loadingOverlay">Saving, please wait...</div>
         <div id="nextOverlay">Please click the Stop Sharing button below...</div>
-        <div id="save-button">
-            <button name="save" id="save-data" aria-label="button" role="button">Save</button>
-        </div>
       <main className="flex min-h-screen max-w-7xl mx-auto">
         {/* Sidebar */}
         <Sidebar />
@@ -364,5 +372,6 @@ export default function App() {
         {/* Modal */}
       </main>
     </div>
+          </>
   );
 }
