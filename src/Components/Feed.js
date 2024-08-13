@@ -7,7 +7,7 @@ const Feed = () => {
     {
       id: "1",
       name: "User",
-      username: "bilgihankose",
+      username: "aNewUser",
       userImage: "https://avatars.githubusercontent.com/u/39279529",
       postImage:
         "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
@@ -17,7 +17,7 @@ const Feed = () => {
     {
       id: "2",
       name: "User",
-      username: "bilgihankose",
+      username: "aNewUser",
       userImage: "https://avatars.githubusercontent.com/u/39279529",
       postImage:
         "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
@@ -27,7 +27,7 @@ const Feed = () => {
     {
       id: "3",
       name: "User",
-      username: "bilgihankose",
+      username: "aNewUser",
       userImage: "https://avatars.githubusercontent.com/u/39279529",
       postImage:
         "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
