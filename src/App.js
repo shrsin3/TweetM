@@ -11,7 +11,7 @@ export default function App() {
         let startTime = new Date().getTime();
         let remainingTime;
 
-        const helpTimer = setInterval(handleHelpTimer, 1000);
+        // const helpTimer = setInterval(handleHelpTimer, 1000);
 
         function handleHelpTimer(){
             helpButtonWait = helpButtonWait-1;
@@ -41,26 +41,26 @@ export default function App() {
 
         }
 
-        document.getElementById('get-help').addEventListener('click', ()=>{
-            let pauseTime = new Date().getTime();
-            console.log(pauseTime - startTime);
-            clearTimeout(automaticSave);
-            let timeDone = pauseTime - startTime
-            console.log(timeDone)
-            remainingTime = 300000 - timeDone;
-            document.getElementById('help-document').style.display = 'flex';
-        })
+        // document.getElementById('get-help').addEventListener('click', ()=>{
+        //     let pauseTime = new Date().getTime();
+        //     console.log(pauseTime - startTime);
+        //     clearTimeout(automaticSave);
+        //     let timeDone = pauseTime - startTime
+        //     console.log(timeDone)
+        //     remainingTime = 300000 - timeDone;
+        //     document.getElementById('help-document').style.display = 'flex';
+        // })
 
-        document.getElementById('close-button-toolbar').addEventListener('click', ()=>{
-            document.getElementById('help-document').style.display = 'none';
-            document.getElementById('get-help').style.display = 'none';
-            console.log(remainingTime)
-            setTimeout(async () => {
-                await savingData();
-            }, remainingTime);
-
-
-        })
+        // document.getElementById('close-button-toolbar').addEventListener('click', ()=>{
+        //     document.getElementById('help-document').style.display = 'none';
+        //     document.getElementById('get-help').style.display = 'none';
+        //     console.log(remainingTime)
+        //     setTimeout(async () => {
+        //         await savingData();
+        //     }, remainingTime);
+        //
+        //
+        // })
 
         let automaticSave = setTimeout(async () => {
             await savingData();
@@ -206,16 +206,29 @@ export default function App() {
 
         }
 
+        const JSONToFile = () => {
+            const blob = new Blob([JSON.stringify(eventList)], {
+                type: 'application/json',
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            let date = new Date();
+            a.download = `Calender`+ date+`.json`;
+            a.click();
+        };
+
         async function savingData() {
             document.getElementById('loadingOverlay').style.display = 'flex';
 
             try {
-                const uploadResult = await uploadToS3();
-                console.log("successful")
-                // alert('Upload successful!');
+                // const uploadResult = await uploadToS3();
+                // console.log("successful")
+                JSONToFile()
+                alert('Upload successful!');
             } catch (error) {
                 console.error('Error uploading data:', error);
-                // alert('Failed to upload data.');
+                alert('Failed to upload data.');
             } finally {
                 document.getElementById('loadingOverlay').style.display = 'none';
                 document.getElementById('nextOverlay').style.display = 'flex';
@@ -412,28 +425,28 @@ export default function App() {
                   <p>Create and post a Twitter poll to gather opinions on whether individuals like pineapple on pizza</p>
               </div>
               <div id="save-button">
-                  <button name="help" id="get-help" aria-label="button" role="button"></button>
+                  {/*<button name="help" id="get-help" aria-label="button" role="button"></button>*/}
                   <button name="save" id="save-data" aria-label="button" role="button">Next</button>
               </div>
           </div>
     <div className="container">
 
-        <div id="help-document">
-            <div id="doc-toolbar">
-                <div id="help-document-toolbar">
-                    <div id="close-button-toolbar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" className="bi bi-x-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                        </svg>
-                    </div>
-                </div>
-                <div id="doc-source">
-                    <PdfViewer></PdfViewer>
-                    {/*<embed src="TwitterTaskSteps.pdf#toolbar=0" height="500" width="80%"/>*/}
-                </div>
-            </div>
-        </div>
+        {/*<div id="help-document">*/}
+        {/*    <div id="doc-toolbar">*/}
+        {/*        <div id="help-document-toolbar">*/}
+        {/*            <div id="close-button-toolbar">*/}
+        {/*                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" className="bi bi-x-circle" viewBox="0 0 16 16">*/}
+        {/*                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>*/}
+        {/*                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>*/}
+        {/*                </svg>*/}
+        {/*            </div>*/}
+        {/*        </div>*/}
+        {/*        <div id="doc-source">*/}
+        {/*            <PdfViewer></PdfViewer>*/}
+        {/*            /!*<embed src="TwitterTaskSteps.pdf#toolbar=0" height="500" width="80%"/>*!/*/}
+        {/*        </div>*/}
+        {/*    </div>*/}
+        {/*</div>*/}
 
         <div id="loadingOverlay">Saving, please wait...</div>
         <div id="nextOverlay">Please click the Stop Sharing button below...</div>
