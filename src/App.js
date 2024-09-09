@@ -13,33 +13,33 @@ export default function App() {
 
         // const helpTimer = setInterval(handleHelpTimer, 1000);
 
-        function handleHelpTimer(){
-            helpButtonWait = helpButtonWait-1;
-            // console.log("Help Timer Called")
-            if(helpButtonWait > 9){
-                let helpButton = document.getElementById("get-help")
-                helpButton.innerHTML = "Get help in 00:"+ helpButtonWait;
-                helpButton.disabled = true;
-                helpButton.style.backgroundColor = "#808080"
-                helpButton.style.color = "white"
-            } else if(helpButtonWait !== 0){
-                let helpButton = document.getElementById("get-help")
-                helpButton.innerHTML = "Get help in 00:0"+ helpButtonWait;
-                helpButton.disabled = true;
-                helpButton.style.backgroundColor = "#808080"
-                helpButton.style.color = "white"
-            }else {
-                let helpButton = document.getElementById("get-help")
-                helpButton.innerHTML = "Help";
-                helpButton.disabled = false;
-                clearInterval(helpTimer);
-                helpButton.style.backgroundColor = "#8B44A2"
-                helpButton.style.color = "white"
-                helpButton.style.cursor = "pointer"
-            }
-            // console.log(helpButtonWait)
-
-        }
+        // function handleHelpTimer(){
+        //     helpButtonWait = helpButtonWait-1;
+        //     // console.log("Help Timer Called")
+        //     if(helpButtonWait > 9){
+        //         let helpButton = document.getElementById("get-help")
+        //         helpButton.innerHTML = "Get help in 00:"+ helpButtonWait;
+        //         helpButton.disabled = true;
+        //         helpButton.style.backgroundColor = "#808080"
+        //         helpButton.style.color = "white"
+        //     } else if(helpButtonWait !== 0){
+        //         let helpButton = document.getElementById("get-help")
+        //         helpButton.innerHTML = "Get help in 00:0"+ helpButtonWait;
+        //         helpButton.disabled = true;
+        //         helpButton.style.backgroundColor = "#808080"
+        //         helpButton.style.color = "white"
+        //     }else {
+        //         let helpButton = document.getElementById("get-help")
+        //         helpButton.innerHTML = "Help";
+        //         helpButton.disabled = false;
+        //         clearInterval(helpTimer);
+        //         helpButton.style.backgroundColor = "#8B44A2"
+        //         helpButton.style.color = "white"
+        //         helpButton.style.cursor = "pointer"
+        //     }
+        //     // console.log(helpButtonWait)
+        //
+        // }
 
         // document.getElementById('get-help').addEventListener('click', ()=>{
         //     let pauseTime = new Date().getTime();
