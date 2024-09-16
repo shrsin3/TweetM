@@ -7,11 +7,39 @@ import PdfViewer from "./PdfViewer";
 export default function App() {
     useEffect(() => {
 
-        let helpButtonWait = 60
+        let helpButtonWait = 300
         let startTime = new Date().getTime();
         let remainingTime;
 
-        // const helpTimer = setInterval(handleHelpTimer, 1000);
+        const helpTimer = setInterval(handleHelpTimer, 1000);
+
+        // Code inspired from -;
+        // https://www.tutorialspoint.com/how-to-convert-javascript-seconds-to-minutes-and-seconds
+        async function handleHelpTimer() {
+            helpButtonWait = helpButtonWait - 1;
+            let helpButton = document.getElementById("get-help")
+            let minutes = Math.floor(helpButtonWait / 60);
+            let extraSeconds = helpButtonWait % 60;
+            if (minutes < 10) {
+                minutes = "0" + minutes
+            }
+
+            if (extraSeconds < 10) {
+                extraSeconds = "0" + extraSeconds
+            }
+            helpButton.disabled = true;
+            helpButton.innerHTML = minutes + ":" + extraSeconds
+            helpButton.style.backgroundColor = "#808080"
+            helpButton.style.color = "white"
+
+            if (helpButtonWait === 0) {
+                clearInterval(helpTimer);
+                await savingData();
+                return;
+            }
+
+            console.log(helpButtonWait)
+        }
 
         // function handleHelpTimer(){
         //     helpButtonWait = helpButtonWait-1;
@@ -62,9 +90,9 @@ export default function App() {
         //
         // })
 
-        let automaticSave = setTimeout(async () => {
-            await savingData();
-        }, 300000);
+        // let automaticSave = setTimeout(async () => {
+        //     await savingData();
+        // }, 300000);
 
         let date = new Date();
         date = date.toLocaleString("en-CA", {
@@ -425,7 +453,7 @@ export default function App() {
                   <p>Create and post a Twitter poll to gather opinions on whether individuals like pineapple on pizza</p>
               </div>
               <div id="save-button">
-                  {/*<button name="help" id="get-help" aria-label="button" role="button"></button>*/}
+                  <button name="help" id="get-help" aria-label="button" role="button"></button>
                   <button name="save" id="save-data" aria-label="button" role="button">Next</button>
               </div>
           </div>
