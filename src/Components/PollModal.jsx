@@ -406,6 +406,7 @@ const PollModal= (props) => {
                         <LocationMarkerIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
                     </IconButton>
                 </div>
+                <div className="flex">
                 {selected && formState.isValid && <IconButton onClick={handleAddPost}>
                     <PlusIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100"></PlusIcon>
                 </IconButton>}
@@ -416,6 +417,7 @@ const PollModal= (props) => {
                 >
                     Tweet
                 </button>
+                </div>
             </div>
         </Container>
         </form>
