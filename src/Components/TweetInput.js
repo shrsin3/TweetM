@@ -7,7 +7,6 @@ import {GifPickerModal} from "./GifPickerModal";
 import {PlusIcon} from "@heroicons/react/outline";
 
 
-
 const TweetInput = () => {
   const [input, setInput] = useState("");
   const [pollModalState, setOpen] = useState(false);
@@ -15,6 +14,7 @@ const TweetInput = () => {
   const [ selected, setSelected ] = useState(null);
   const [addPostState, setPostState] = useState(false);
   const [addPollStatus, setAddPollStatus] = useState(false);
+  const [isGifSelected, setGifSelected] = useState(false)
 
   const handleAddPost = ()=>{
     setOpen(true);
@@ -49,11 +49,18 @@ const TweetInput = () => {
 
   return (
     <div className="flex border-b border-gray-200 p-3 space-x-3">
+      {/*<NewPollModal toggle={pollModalState} action={handleCloseModal}*/}
+      {/*           gif = {selected} addPost = {addPostState} addPoll = {addPollStatus}*/}
+      {/*           handleAddPoll = {handleAddPoll}/>*/}
       <PollModal toggle={pollModalState} action={handleCloseModal}
       gif = {selected} addPost = {addPostState} addPoll = {addPollStatus}
-      handleAddPoll = {handleAddPoll}/>
+      handleAddPoll = {handleAddPoll}
+      isGifSelected = {isGifSelected}/>
       <GifPickerModal toggle={gifModalState} action={handleGifOpenPollModal}
-                      pickGif={setSelected}/>
+                      pickGif={(e)=>{
+                        setSelected(e)
+                        setGifSelected(true);
+                      }}/>
       <Avatar className={"w-full divide-y divide-gray-200"}
               sx={{ backgroundColor: "#ff5722" }}>H</Avatar>
       {/*<img*/}
@@ -85,7 +92,8 @@ const TweetInput = () => {
             <IconButton>
             <EmojiHappyIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
             </IconButton>
-            <IconButton onClick={handleAddPoll}>
+            <IconButton onClick={handleAddPoll}
+                        disabled={isGifSelected}>
               <ChartBarIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
             </IconButton>
             <IconButton onClick={handleGifOpenPollModal}>

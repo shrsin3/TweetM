@@ -7,11 +7,21 @@ import PdfViewer from "./PdfViewer";
 export default function App() {
     useEffect(() => {
 
-        let helpButtonWait = 300
+        let helpButton = document.getElementById("get-help")
+        let helpTimer;
+
+        helpButton.display = "none"
+
+        setTimeout(async () => {
+            helpButton.display = "block"
+            helpTimer = setInterval(handleHelpTimer, 1000);
+        }, 240000);
+
+        let helpButtonWait = 60
         let startTime = new Date().getTime();
         let remainingTime;
 
-        const helpTimer = setInterval(handleHelpTimer, 1000);
+        // const helpTimer = setInterval(handleHelpTimer, 1000);
 
         // Code inspired from -;
         // https://www.tutorialspoint.com/how-to-convert-javascript-seconds-to-minutes-and-seconds
@@ -33,12 +43,13 @@ export default function App() {
             helpButton.style.color = "white"
 
             if (helpButtonWait === 0) {
+                helpButton.innerHTML = "00:00"
                 clearInterval(helpTimer);
                 await savingData();
                 return;
             }
 
-            console.log(helpButtonWait)
+            // console.log(helpButtonWait)
         }
 
         // function handleHelpTimer(){
